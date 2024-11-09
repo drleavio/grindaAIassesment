@@ -1,9 +1,9 @@
-import SignUp from "@/components/SignUp";
-import Image from "next/image";
+import HomePage from "@/components/HomePage";
+
 
 
 export default function Home() {
   return (
-    <SignUp/>
+    <HomePage/>
   );
 }

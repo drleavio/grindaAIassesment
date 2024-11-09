@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { supabase } from "@/supabase/client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useAuth } from "@/hooks/useAuth";
+import spinner from "../../public/images/spinner.svg"
 
 
 export default function Login(){
@@ -11,20 +11,11 @@ export default function Login(){
     const [email,setEmail]=useState<string>('');
     const [password,setPassword]=useState<string>('');
     const [error,setError]=useState<string>('')
+    const [loading,setLoading]=useState<boolean>(false);
     const router=useRouter();
 
-    const {user,loading}=useAuth();
+   
     useEffect(()=>{
-        // console.log('started');
-        // console.log(user);
-        
-        // if(!loading && user){
-            
-        //     console.log('logged in');
-            
-        //     router.replace("/feedback")
-        // }
-        // console.log('end');
         const checkAuth=async()=>{
             const response=await supabase.auth.getSession();
             console.log(response);
@@ -39,22 +30,27 @@ export default function Login(){
     
   
     const handleclick=async()=>{
+        setLoading(true)
         const {error} = await supabase.auth.signInWithPassword({email,password});
         if(error){
             setError(error.message)
         }else{
             router.push("/feedback")
         }
+        setLoading(false)
     }
 
-    return user?<p>already logged in go to <Link href="/feedback">feedback section</Link></p>: <div>
-         <div>
-            <label htmlFor="email">Email</label>
-            <input type="text" onChange={(e)=>{setEmail(e.target.value)}}/>
-            <label htmlFor="password">Password</label>
-            <input type="text" onChange={(e)=>{setPassword(e.target.value)}}/>
-            <button onClick={handleclick}>Login</button>
-            <div>don't have an account please <Link href="/">Signup</Link></div>
+    return <div className="signin-container">
+        <h1 className="header">Login</h1>
+           <div className="inside-signin">   
+           <label className="label" htmlFor="email">Email</label>
+            <input className="inp-box" type="text" onChange={(e)=>{setEmail(e.target.value)}}/>
+            <label className="label" htmlFor="password">Password</label>
+            <input className="inp-box" type="text" onChange={(e)=>{setPassword(e.target.value)}}/>
+            <button disabled={loading} onClick={handleclick} className="btn">{loading?<img className="spin-img" src={spinner.src} alt="" />:null}Login</button>
+            {error?<div>{error}</div>:null}
+            <div>don&apos;t have an account ? please <Link href="/signup" style={{color:"skyblue"}}>Signup</Link></div>
+           </div>
          </div>
-    </div>
+    
 }

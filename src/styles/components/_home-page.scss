@@ -1,0 +1,100 @@
+.home-page-div{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .left-div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        .inner-div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+
+            .img{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: skyblue;
+                padding: 10px;
+
+                .inside-img{
+                    height: 210px;
+                    width: 210px;
+                }
+            }
+            .feed-div{
+                width: 100%;
+                gap: 20px;
+                .inside-fd{
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                }
+                .btn-fd{
+                    padding: 10px;
+                    background-color: skyblue;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+       
+    }
+    .right-div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        .inner-div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+
+            .img{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: skyblue;
+                padding: 10px;
+
+                .inside-img{
+                    height: 210px;
+                    width: 210px;
+                }
+            }
+            .feed-div{
+                width: 100%;
+                gap: 20px;
+                .inside-fd{
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                }
+                .btn-fd{
+                    width: 100%;
+                    padding: 10px;
+                    background-color: skyblue;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .login{
+                    background-color: black;
+                    color: white;
+                    margin-top: 20px;
+                }
+            }
+           
+        }
+    }
+}

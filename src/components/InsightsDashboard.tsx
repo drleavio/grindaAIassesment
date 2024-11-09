@@ -1,6 +1,6 @@
 "use client"
 import { supabase } from "@/supabase/client";
-import Link from "next/link";
+import spinner from "../../public/images/spinner.svg"
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -11,8 +11,11 @@ interface Feedback{
     summary:string;
 }
 
+
+
 const InsightsDashboard=()=>{
     const [feedbackList,setFeedbackList]=useState<Feedback[]>([]);
+    const [loading,setLoading]=useState<boolean>(false);
     const router=useRouter();
     useEffect(()=>{
         const fetchData=async()=>{
@@ -29,7 +32,7 @@ const InsightsDashboard=()=>{
                     setFeedbackList(response.data);
                 }
             } catch (error) {
-                console.log('error fetching data');
+                console.log('error fetching data',error);
                 
             }
         }
@@ -37,26 +40,54 @@ const InsightsDashboard=()=>{
     },[])
     const logout=async()=>{
         try {
+            setLoading(true)
             const response=await supabase.auth.signOut();
+            // console.log(response);
+            console.log(response);
+            if(response.error){
+                console.log(response.error);
+                
+            }
+            
             router.push('/login')
         } catch (error) {
-            console.log('error doing logout');
+            console.log('error doing logout',error);
             
         }
+        finally{
+            setLoading(false)
+        }
     }
-    return <div>
-        <div>feedback</div>
+    return <div className="dashboard-container">
+       <div className="t-container">
+       <div className="header">feedback</div>
+       <button className="btn" onClick={logout}>{loading?<img className="spin-img" src={spinner.src}/>:null}signout</button>
+       </div>
         <div>
-            {
-                feedbackList.map((data)=>{
-                    return <div key={data.feedbackId}>
-                        <div>{data.text}</div>
-                        <div>{data?.sentiment}</div>
-                        <div>{data?.summary}</div>
-                    </div>
+            <table>
+                <thead>
+                   <tr>
+                   <th>index</th>
+                    <th>feedback</th>
+                    <th>sentiments</th>
+                    <th>summary</th>
+                   </tr>
+                </thead>
+                <tbody>
+                {
+                feedbackList.map((data,ind)=>{
+                    return <tr key={ind}>
+                        <td>{ind+1}</td>
+                        <td>{data.text}</td>
+                        <td>{data?.sentiment}</td>
+                        <td>{data?.summary}</td>
+                    </tr>
                 })
             }
-            <button onClick={logout}>signout</button>
+                </tbody>
+            </table>
+           
+           
         </div>
     </div>
 }
