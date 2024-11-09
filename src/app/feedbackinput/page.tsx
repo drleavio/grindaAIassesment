@@ -46,7 +46,7 @@ export default function Home(){
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer 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`, 
+                  'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 
                 },
                 body: JSON.stringify({
                   model: 'gpt-4o-mini', 
