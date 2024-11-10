@@ -3,13 +3,13 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Getting Started
 
 first of all clone this repo in your local machine using this command:
---> ```bash git clone https://github.com/drleavio/grindaAIassesment```
+--> ```git clone https://github.com/drleavio/grindaAIassesment```
 
 secondly run this command:
---> ```bash cd grindaAIassesment ```
+--> ```cd grindaAIassesment ```
 
 in last run the development server using this command:
---> ```bash npm run dev ```
+--> ```npm run dev ```
 
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
