@@ -16,14 +16,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-the dependencies I have used for this projects are as follows
+the dependencies I have used for this projects are as follows.
 
---> Next.js for frontend and backend using Typescript
---> Supabase for database and authentication
---> OpenAI API for integrating AI inside the app for extracting sentiments and summaries
---> React Toastify for popup or notifications
---> SASS or SCSS for styling
---> I have used app directory not the pages folder
+--> Next.js for frontend and backend using Typescript.
+--> Supabase for database and authentication.
+--> OpenAI API for integrating AI inside the app for extracting sentiments and summaries.
+--> React Toastify for popup or notifications.
+--> SASS or SCSS for styling.
+--> I have used app directory not the pages folder.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
