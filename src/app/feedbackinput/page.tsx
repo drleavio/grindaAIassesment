@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import spinner from "../../../public/images/spinner.svg"
+import { toast } from "react-toastify";
 
 
 
@@ -46,7 +47,7 @@ export default function Home(){
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 
+                  'Authorization': `Bearer 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`, 
                 },
                 body: JSON.stringify({
                   model: 'gpt-4o-mini', 
@@ -87,9 +88,11 @@ export default function Home(){
             ])
             setFeedbackInput('');
            setLoading(false)
+           toast.success("feedback submitted successfully")
             console.log(response);
             
         } catch (error) {
+            toast.error("something went wrong")
             console.log('error submitting feedback',error);
             
         }

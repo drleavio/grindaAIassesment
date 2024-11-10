@@ -4,6 +4,7 @@ import { supabase } from "@/supabase/client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import spinner from "../../public/images/spinner.svg"
+import { toast } from "react-toastify";
 
 export default function SignUp(){
 
@@ -42,7 +43,9 @@ export default function SignUp(){
             console.log(error);
             
             setError(error.message)
+            toast.error(error.message)
         }else{
+            toast.success("signup successfull")
             router.push("/login")
         }
         setLoading(false);
@@ -54,7 +57,7 @@ export default function SignUp(){
             <label className="label" htmlFor="email">Email</label>
             <input className="inp-box" type="text" onChange={(e)=>{setEmail(e.target.value)}} required/>
             <label className="label" htmlFor="password">Password</label>
-            <input className="inp-box" type="text" onChange={(e)=>{setPassword(e.target.value)}} required/>
+            <input className="inp-box" type="password" onChange={(e)=>{setPassword(e.target.value)}} required/>
             <button disabled={loading} onClick={handleclick} className="btn">{loading?<img className="spin-img" src={spinner.src} alt="" />:null}Signup</button>
           
                 {

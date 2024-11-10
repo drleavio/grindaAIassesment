@@ -3,6 +3,7 @@ import { supabase } from "@/supabase/client";
 import spinner from "../../public/images/spinner.svg"
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 interface Feedback{
     feedbackId:number;
@@ -50,8 +51,10 @@ const InsightsDashboard=()=>{
             }
             
             router.push('/login')
+            toast.success("logout successfully")
         } catch (error) {
             console.log('error doing logout',error);
+            toast.error("something wrong")
             
         }
         finally{
