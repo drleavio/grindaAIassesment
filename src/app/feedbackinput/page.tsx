@@ -47,11 +47,11 @@ export default function Home(){
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer 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`, 
+                  'Authorization': `Bearer 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`, 
                 },
                 body: JSON.stringify({
                   model: 'gpt-4o-mini', 
-                  messages: [{ role: 'system', content: 'You are an assistant that provides sentiment analysis and summaries.' },
+                  messages: [{ role: 'system', content: 'You are an assistant that provides sentiment analysis and give response of sentiment analysis only in Positive, Negative or Neutral word and summaries.' },
                     { role: 'user', content: `Please provide both a summary and a sentiment analysis for the following text:\n"${feedbackInput}}"` },],
                 }),
               });

@@ -15,7 +15,7 @@ export default function Login(){
     const [error,setError]=useState<string>('')
     const [loading,setLoading]=useState<boolean>(false);
     const router=useRouter();
-    const notify = () => toast("Wow so easy!");
+    
 
    
     useEffect(()=>{

@@ -4,6 +4,7 @@ import spinner from "../../public/images/spinner.svg"
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 interface Feedback{
     feedbackId:number;
@@ -64,6 +65,7 @@ const InsightsDashboard=()=>{
     return <div className="dashboard-container">
        <div className="t-container">
        <div className="header">feedback</div>
+       <button className="btn"><Link href="/chart">view Analytics</Link></button>
        <button className="btn" onClick={logout}>{loading?<img className="spin-img" src={spinner.src}/>:null}signout</button>
        </div>
         <div>
