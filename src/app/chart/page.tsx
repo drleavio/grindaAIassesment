@@ -3,16 +3,12 @@
 import React, { useEffect, useState } from 'react';
 import SentimentBarChart from '../../components/Chart';
 import { supabase } from '@/supabase/client';
-import { count } from 'console';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import spinner from "../../../public/images/spinner.svg"
-import { Value } from 'sass';
 import PieChart from '@/components/PieChart';
 
 export default function Home() {
-//   const positiveCount = 0; // Replace with your actual data
-  // Replace with your actual data
   const [positiveCount,setPositiveCount]=useState(0);
   const [negativeCount,setNegativeCount]=useState(0);
   const [neutralCount,setNeutralCount]=useState(0);
